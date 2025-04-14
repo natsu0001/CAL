@@ -29,7 +29,7 @@ const WatchlistProvider = ({ children }) => {
   );
 };
 
-// ✅ Custom hook you can import in components
+//  Custom hook import in components(later,should be in the hook folder)
 export const useWatchlist = () => useContext(WatchlistContext);
 
 export default WatchlistProvider;
