@@ -3,22 +3,25 @@ import SearchBar from '../components/SearchBar';
 import AnimeCard from '../components/AnimeCard';
 import { searchAnime } from '../utils/api';
 
+import TrendingSeasonCarousel from '../components/TrendingSeasonCarousel';
 const Home = () => {
-  const [results, setResults] = useState([]);
-
-  const handleSearch = async (query) => {
-    const data = await searchAnime(query);
-    setResults(data);
-  };
-
   return (
     <div>
-      <SearchBar onSearch={handleSearch} />
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
-        {results.map(anime => (
-          <AnimeCard key={anime.mal_id} anime={anime} />
-        ))}
+      <SearchBar />
+      <div className="px-4 mt-4">
+        <h2 className="text-2xl font-semibold mb-2">Trending Anime</h2>
+        <div className="overflow-x-auto">
+          <TrendingSeasonCarousel />
+        </div>
       </div>
+
+      {/* Example: Add another carousel here */}
+      {/* 
+      <div className="px-4 mt-8">
+        <h2 className="text-2xl font-semibold mb-2">Current Season Anime</h2>
+        <CurrentSeasonCarousel />
+      </div> 
+      */}
     </div>
   );
 };
