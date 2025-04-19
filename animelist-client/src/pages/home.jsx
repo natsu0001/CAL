@@ -4,24 +4,27 @@ import AnimeCard from '../components/AnimeCard';
 import { searchAnime } from '../utils/api';
 
 import TrendingSeasonCarousel from '../components/TrendingSeasonCarousel';
+import TrendingAnimeCarousel from '../components/TrendingAnimeCarousel';
 const Home = () => {
   return (
     <div>
       <SearchBar />
       <div className="px-4 mt-4">
-        <h2 className="text-2xl font-semibold mb-2">Trending Anime</h2>
+        <h2 className="text-2xl font-semibold mb-2">Spotlight Anime</h2>
         <div className="overflow-x-auto">
           <TrendingSeasonCarousel />
         </div>
       </div>
 
-      {/* Example: Add another carousel here */}
-      {/* 
-      <div className="px-4 mt-8">
-        <h2 className="text-2xl font-semibold mb-2">Current Season Anime</h2>
-        <CurrentSeasonCarousel />
-      </div> 
-      */}
+      {/*  Add another carousel  */}
+      {
+      <div className="px-4 mt-4">
+      <div className="w-full max-w-8xl">
+        <h2 className="text-2xl font-semibold mb-2 ">Trending Anime</h2>
+        <TrendingAnimeCarousel />
+      </div>
+    </div>
+      }
     </div>
   );
 };
