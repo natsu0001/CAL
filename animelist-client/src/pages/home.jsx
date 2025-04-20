@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       <SearchBar />
       <div className="px-4 mt-4">
-        <h2 className="text-2xl font-semibold mb-2">Spotlight Anime</h2>
+        
         <div className="overflow-x-auto">
           <TrendingSeasonCarousel />
         </div>
