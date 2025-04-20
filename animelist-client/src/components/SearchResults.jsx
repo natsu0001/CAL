@@ -20,7 +20,8 @@ const SearchResults = () => {
   }, [query]);
 
   return (
-    <div className="p-4">
+    <div style={{ backgroundColor: '#110F1F' }} className="min-h-screen text-white">
+    <div className="p-1 mt-16">
       <h1 className="text-xl font-bold mb-4">Search Results for "{query}"</h1>
       {loading ? (
         <p>Loading...</p>
@@ -33,6 +34,7 @@ const SearchResults = () => {
       ) : (
         <p>No results found.</p>
       )}
+    </div>
     </div>
   );
 };
