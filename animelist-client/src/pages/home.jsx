@@ -7,7 +7,7 @@ import TrendingSeasonCarousel from '../components/TrendingSeasonCarousel';
 import TrendingAnimeCarousel from '../components/TrendingAnimeCarousel';
 const Home = () => {
   return (
-    <div>
+    <div style={{ backgroundColor: '#110F1F' }} className="min-h-screen text-white">
       <SearchBar />
       <div className="px-0 mt-0">
         
