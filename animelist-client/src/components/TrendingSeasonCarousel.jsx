@@ -12,8 +12,8 @@ const TrendingSeasonCarousel = () => {
   }, []);
 
   return (
-    <div className="rounded-xl pt-20">
-      <Carousel autoplay loop className="rounded-xl h-[500px]">
+    <div >
+      <Carousel autoplay loop className=" h-[500px]">
         {animes.map((anime) => (
           <div key={anime.mal_id} className="relative h-full w-full">
          

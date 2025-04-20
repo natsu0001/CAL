@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <SearchBar />
-      <div className="px-4 mt-4">
+      <div className="px-0 mt-0">
         
         <div className="overflow-x-auto">
           <TrendingSeasonCarousel />
@@ -18,7 +18,7 @@ const Home = () => {
 
       {/*  Add another carousel  */}
       {
-      <div className="px-4 mt-4">
+      <div className="px-0 mt-0">
       <div className="w-full max-w-8xl">
         <h2 className="text-2xl font-semibold mb-2 ">Trending Anime</h2>
         <TrendingAnimeCarousel />
