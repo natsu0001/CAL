@@ -13,21 +13,22 @@ const TrendingSeasonCarousel = () => {
 
   return (
     <div >
-      <Carousel autoplay loop className=" h-[500px]">
+      
+      <Carousel autoplay loop className=" h-[600px]">
         {animes.map((anime) => (
-          <div key={anime.mal_id} className="relative h-full w-full">
+          <div key={anime.mal_id} className="relative h-full w-full flex items-center justify-end ">
          
-          
+         
           <img
             src={anime.images.jpg.large_image_url}
             alt={anime.title}
-            className="h-full w-full object-cover"
+            className=" h-full w-2/3 object-cover object-[center_20%]  "
           />
           
         
           
-          <div className="absolute inset-0 z-10 flex items-end bg-gradient-to-r from-black/80 via-black/50 to-transparent">
-            <div className="p-8 max-w-xl text-white space-y-4">
+          <div className="absolute inset-0 z-10 flex items-end bg-gradient-to-l from-black/80 via-black/40 to-transparent">
+            <div className="relative ml-20 mb-10 p-8 max-w-xl text-white space-y-4">
               <Typography
                 variant="h2"
                 color="white"

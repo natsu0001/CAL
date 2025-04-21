@@ -24,7 +24,7 @@ const SearchBar = () => {
           placeholder="Search for anime..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full border border-gray-300 rounded pl-4 pr-10 py-2 focus:outline-none text-black placeholder-gray-500"
+          className="w-[400px] border border-gray-300 rounded pl-4 pr-10 py-2 focus:outline-none text-black placeholder-gray-500"
         />
         <button
           type="submit"

@@ -5,20 +5,20 @@ import { WatchlistContext } from '../context/WatchlistContext';
 const Details = () => {
   const { id } = useParams();
   const [anime, setAnime] = useState(null);
-  const [error, setError] = useState(null); // Added for error handling
-  const { addToWatchlist } = useContext(WatchlistContext); // ✅ move inside the component
+  const [error, setError] = useState(null);
+  const { addToWatchlist } = useContext(WatchlistContext); 
 
   useEffect(() => {
     fetch(`https://api.jikan.moe/v4/anime/${id}`)
       .then((res) => {
-        if (!res.ok) throw new Error('Failed to fetch data'); // Handling API errors
+        if (!res.ok) throw new Error('Failed to fetch data'); 
         return res.json();
       })
       .then((data) => setAnime(data.data))
-      .catch((err) => setError(err.message)); // Catching and setting error state
+      .catch((err) => setError(err.message)); 
   }, [id]);
 
-  if (error) return <p className="p-4 text-red-500">{error}</p>; // Display error if it occurs
+  if (error) return <p className="p-4 text-red-500">{error}</p>; 
   if (!anime) return <p className="p-4">Loading...</p>;
 
   return (

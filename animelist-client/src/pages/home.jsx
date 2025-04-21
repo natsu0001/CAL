@@ -3,6 +3,7 @@ import SearchBar from '../components/SearchBar';
 import AnimeCard from '../components/AnimeCard';
 import { searchAnime } from '../utils/api';
 
+import AnimeNewsSection from "../components/AnimeNewsSection";
 import TrendingSeasonCarousel from '../components/TrendingSeasonCarousel';
 import TrendingAnimeCarousel from '../components/TrendingAnimeCarousel';
 const Home = () => {
@@ -16,7 +17,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/*  Add another carousel  */}
+      
       {
       <div className="px-0 mt-0">
       <div className="w-full max-w-8xl">
@@ -25,7 +26,12 @@ const Home = () => {
       </div>
     </div>
       }
+      
+      <div>
+        <AnimeNewsSection />
+      </div>
     </div>
+    
   );
 };
 
