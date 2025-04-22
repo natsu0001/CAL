@@ -57,31 +57,20 @@ const TrendingAnimeCarousel = () => {
           }}
         >
           {animes.map((anime) => (
-            <div
-              key={anime.mal_id}
-              className="min-w-[250px] max-w-[250px] mr-4 bg-gray-900 rounded-lg shadow-md overflow-hidden flex-shrink-0"
-            >
-              <img
-                src={anime.images.jpg.large_image_url}
-                alt={anime.title}
-                className="h-64 w-full object-cover"
-              />
-              <div className="p-3 text-white">
-                <Typography variant="h6" className="mb-1 text-base line-clamp-2">
-                  {anime.title}
-                </Typography>
-                <Typography className="text-sm opacity-70 line-clamp-3">
-                  {anime.synopsis || "No description available."}
-                </Typography>
-                <div className="mt-2">
-                  <Link to={`/details/${anime.mal_id}`}>
-                    <Button size="sm" color="white">
-                      View
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
+           <Link
+           key={anime.mal_id}
+           to={`/details/${anime.mal_id}`}
+           className="min-w-[250px] max-w-[250px] mr-4 bg-gray-900 rounded-lg shadow-md overflow-hidden flex-shrink-0 hover:scale-105 transition-transform"
+         >
+           <img
+             src={anime.images.jpg.large_image_url}
+             alt={anime.title}
+             className="h-64 w-full object-cover"
+           />
+           <div className="p-3 text-white">
+             <p className="text-base font-semibold line-clamp-2">{anime.title}</p>
+           </div>
+         </Link>
           ))}
         </div>
       </div>
