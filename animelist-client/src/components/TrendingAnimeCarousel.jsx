@@ -27,6 +27,7 @@ const TrendingAnimeCarousel = () => {
   };
 
   return (
+    //have to put this in a container later
     <div className="relative w-full px-4 py-6">
       <Typography variant="h4" className="text-white mb-4">
         Top Trending Anime
