@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import { FaTwitter, FaRedditAlien, FaTelegramPlane, FaDiscord } from 'react-icons/fa';
 import SearchBar from '../components/SearchBar';
+import { useAuth } from '../context/AuthContext';
+import { signInWithPopup, signOut } from 'firebase/auth';
+import { auth, provider } from '../firebase/firebase';
+
 const Navbar = () => (
   <nav className="absolute top-0 left-0 w-full z-20 bg-gray-800/0 text-white p-4 flex justify-between items-center">
   
