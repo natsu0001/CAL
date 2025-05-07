@@ -3,7 +3,7 @@ import { FaTwitter, FaRedditAlien, FaTelegramPlane, FaDiscord } from 'react-icon
 import SearchBar from '../components/SearchBar';
 
 import { auth, provider } from "../firebase/firebase";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signOut } from "firebase/auth";
 import { useState, useEffect } from "react";
 
 const Navbar = () => {
@@ -12,9 +12,18 @@ const Navbar = () => {
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      setUser(result.user); // Update state with logged-in user
+      setUser(result.user);
     } catch (error) {
       console.error("Google login failed:", error);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+    } catch (error) {
+      console.error("Logout failed:", error);
     }
   };
 
@@ -58,7 +67,15 @@ const Navbar = () => {
             Login with Google
           </button>
         ) : (
-          <span className="ml-4 text-sm">Hi, {user.displayName}</span>
+          <div className="flex items-center gap-2">
+            <span className="text-sm">Hi, {user.displayName}</span>
+            <button
+              onClick={handleLogout}
+              className="px-3 py-1 bg-red-500 hover:bg-red-600 rounded text-xs"
+            >
+              Logout
+            </button>
+          </div>
         )}
       </div>
     </nav>
