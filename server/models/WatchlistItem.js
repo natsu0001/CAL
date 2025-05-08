@@ -1,12 +1,17 @@
+import mongoose from 'mongoose';
 
-import mongoose from "mongoose";
-
-const watchlistItemSchema = new mongoose.Schema({
-  userId: { type: String, required: true }, // Firebase UID
-  animeId: { type: String, required: true },
+const WatchlistItemSchema = new mongoose.Schema({
+  userId: {
+    type: String,
+    required: true,
+  },
+  mal_id: {
+    type: Number,
+    required: true,
+  },
   title: String,
-  imageUrl: String,
-  status: { type: String, default: "watching" }, // optional
+  image_url: String,
+  
 });
 
-export default mongoose.model("WatchlistItem", watchlistItemSchema);
+export default mongoose.model("WatchlistItem", WatchlistItemSchema);
