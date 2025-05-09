@@ -26,13 +26,18 @@ router.post("/", async (req, res) => {
 });
 
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:userId/:malId", async (req, res) => {
   try {
-    await WatchlistItem.findByIdAndDelete(req.params.id);
+    const { userId, malId } = req.params;
+    const result = await WatchlistItem.findOneAndDelete({ userId, mal_id: malId });
+
+    if (!result) {
+      return res.status(404).json({ message: "Item not found" });
+    }
+
     res.status(200).json({ message: "Deleted" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
-
 export default router;

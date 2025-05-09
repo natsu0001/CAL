@@ -53,17 +53,17 @@ const WatchlistProvider = ({ children }) => {
     }
   };
 
-  const removeFromWatchlist = async (id) => {
-    setWatchlist(watchlist.filter((a) => a.mal_id !== id));
-    if (user) {
-      try {
-        
-        await axios.delete(`/api/watchlist/${id}`);
-      } catch (error) {
-        console.error('Error removing anime from backend', error);
-      }
+const removeFromWatchlist = async (mal_id) => {
+  setWatchlist(watchlist.filter((a) => a.mal_id !== mal_id));
+  if (user) {
+    try {
+      await axios.delete(`/api/watchlist/${user.uid}/${mal_id}`);
+    } catch (error) {
+      console.error('Error removing anime from backend', error);
     }
-  };
+  }
+};
+
 
   return (
     <WatchlistContext.Provider value={{ watchlist, addToWatchlist, removeFromWatchlist }}>
