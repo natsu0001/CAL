@@ -18,7 +18,7 @@ const WatchlistProvider = ({ children }) => {
       
       const fetchWatchlist = async () => {
         try {
-          const response = await axios.get(`/api/watchlist/${user.id}`);
+          const response = await axios.get(`/api/watchlist/${user.uid}`);
           setWatchlist(response.data);
         } catch (error) {
           console.error("Failed to fetch watchlist from the backend", error);
@@ -35,11 +35,17 @@ const WatchlistProvider = ({ children }) => {
 
   const addToWatchlist = async (anime) => {
     if (!watchlist.find((a) => a.mal_id === anime.mal_id)) {
-      setWatchlist([...watchlist, anime]);
+      const flattenedAnime = {
+        ...anime,
+        userId: user.uid,
+        image_url: anime.images?.jpg?.image_url || anime.image_url, 
+      };
+  
+      setWatchlist([...watchlist, flattenedAnime]);
+  
       if (user) {
         try {
-
-          await axios.post('/api/watchlist', { ...anime, userId: user.id });
+          await axios.post('/api/watchlist', flattenedAnime);
         } catch (error) {
           console.error('Error adding anime to backend', error);
         }
@@ -68,4 +74,4 @@ const WatchlistProvider = ({ children }) => {
 
 export const useWatchlist = () => useContext(WatchlistContext);
 
-export default WatchlistProvider;
+export { WatchlistProvider };

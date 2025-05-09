@@ -4,7 +4,7 @@ import WatchlistItem from "../models/WatchlistItem.js";
 
 const router = express.Router();
 
-// Get user's watchlist
+
 router.get("/:userId", async (req, res) => {
   try {
     const items = await WatchlistItem.find({ userId: req.params.userId });
@@ -14,7 +14,7 @@ router.get("/:userId", async (req, res) => {
   }
 });
 
-// Add item to watchlist
+
 router.post("/", async (req, res) => {
   try {
     const newItem = new WatchlistItem(req.body);
@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Delete item
+
 router.delete("/:id", async (req, res) => {
   try {
     await WatchlistItem.findByIdAndDelete(req.params.id);

@@ -5,9 +5,9 @@ const AnimeNewsSection = () => {
 
   useEffect(() => {
     // Fetching news from Jikan (top news articles)
-    fetch("https://api.jikan.moe/v4/anime/1/news") // You can swap "1" for popular anime IDs
+    fetch("https://api.jikan.moe/v4/anime/1/news") 
       .then((res) => res.json())
-      .then((data) => setNews(data.data.slice(0, 5))); // Top 5 news items
+      .then((data) => setNews(data.data.slice(0, 5))); 
   }, []);
 
   return (

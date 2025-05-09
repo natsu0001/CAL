@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
+
 import dotenv from 'dotenv';
 import watchlistRoutes from './routes/watchlist.js'; 
 
@@ -9,7 +9,8 @@ dotenv.config();
 const app = express();
 
 
-app.use(bodyParser.json());
+app.use(express.json());
+
 
 
 app.use('/api/watchlist', watchlistRoutes);

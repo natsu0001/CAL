@@ -2,34 +2,42 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { auth, provider } from "../firebase/firebase"; 
 import { signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 
-
 const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
-
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+     
+      if (currentUser) {
+        setUser({
+          uid: currentUser.uid,
+          email: currentUser.email,
+          displayName: currentUser.displayName, 
+        });
+      } else {
+        setUser(null); 
+      }
     });
 
     return () => unsubscribe(); 
   }, []);
 
-  
   const signInWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      setUser(result.user); 
+      setUser({
+        uid: result.user.uid,
+        email: result.user.email,
+        displayName: result.user.displayName, 
+      });
     } catch (error) {
       console.error("Error signing in with Google: ", error.message);
     }
   };
 
-  
   const logout = async () => {
     try {
       await signOut(auth);
