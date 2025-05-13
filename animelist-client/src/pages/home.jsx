@@ -12,7 +12,7 @@ const Home = () => {
   return (
         <div style={{ backgroundColor: '#110F1F' }} className="min-h-screen text-white">
       
-<div className="max-w-screen-3xl mx-auto px-4">
+<div className="max-w-screen-2xl mx-auto px-4">
               
         {/*issues regardung the main carousal is left*/}
 
