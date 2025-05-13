@@ -14,7 +14,8 @@ const Home = () => {
       
 <div className="max-w-screen-3xl mx-auto px-4">
               
-        
+        {/*issues regardung the main carousal is left*/}
+
         <div className="overflow-x-auto mt-0">
           <TrendingSeasonCarousel />
         </div>
