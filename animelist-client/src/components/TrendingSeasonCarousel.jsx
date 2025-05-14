@@ -13,7 +13,7 @@ const TrendingSeasonCarousel = () => {
 
   return (
   <div className="w-full">
-  <Carousel autoplay loop className="h-[80vh] max-h-screen">
+  <Carousel autoplay loop className="h-[80vh] max-h-[700px] md:max-h-[850px] lg:max-h-[900px] ">
     {animes.map((anime) => (
       <div
         key={anime.mal_id}
